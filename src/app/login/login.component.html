@@ -1,0 +1,42 @@
+<div class="body">
+  <div class="overlay" *ngIf="isLoading">
+    <div class="spinner-wrapper">
+      <div class="loading-item">
+        <h3>Loading...</h3>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="card main-bg shadow-lg">
+        <div class="card-title align-center justify mb-4">
+          <div class="row justify-content-center">
+            <div class=" text-align-center">
+                 <img src="https://image.flaticon.com/icons/svg/32/32441.svg" class=" avatar" alt="Cinque Terre">
+                  <h3 class="display-5 main-text-color">LMS Login</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="main-text-color">Email Address</label>
+              <div class="invalid-feedback"
+              *ngIf="loginForm.get('username').hasError('required') && loginForm.get('username').touched">
+              Username is required
+             </div>
+              <input [ngClass]="{'is-invalid': loginForm.get('username').errors && loginForm.get('username').touched}" type="email" formControlName="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter Email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="main-text-color">Password</label>
+              <input [ngClass]="{'is-invalid': loginForm.get('password').errors && loginForm.get('password').touched}"  type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+          </form>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
