@@ -1,0 +1,12 @@
+.anouncement-header {
+  width: 100%;
+  border-bottom: 1px solid rgb(213, 207, 207);
+  font-size: 18px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.anouncement-content-body {
+  height: 300px;
+  border: 1px solid rgb(213, 207, 207);
+  border-radius: 5px;
+}

@@ -1,14 +1,16 @@
 <div class="body">
   <div class="overlay" *ngIf="isLoading">
-    <div class="spinner-wrapper">
+    <div class="spinner-wrapper d-flex align-items-center justify-content-center">
       <div class="loading-item">
-        <h3>Loading...</h3>
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
       </div>
     </div>
   </div>
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="card main-bg shadow-lg">
+      <div [@fade-in] class="card main-bg shadow-lg">
         <div class="card-title align-center justify mb-4">
           <div class="row justify-content-center">
             <div class=" text-align-center">
@@ -17,7 +19,7 @@
             </div>
           </div>
         </div>
-        <div class="card-body">
+        <div  class="card-body">
           <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="form-group">
               <label for="exampleInputEmail1" class="main-text-color">Email Address</label>

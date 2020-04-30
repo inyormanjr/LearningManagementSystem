@@ -1,24 +1,54 @@
-<nav class="navbar navbar-expand-lg navbar-light main-accent">
+<nav class="navbar navbar-expand-lg navbar-light main-accent ">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Navbar</a>
-
+  <a class="navbar-brand" href="#">LMS</a>
+  <div class="container">
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#">Courses</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="#">Profile</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a name="" id="" class="btn " href="#" role="button">
+           <i class="fa fa-calendar main-text-color" aria-hidden="true"></i>
+        </a>
+     </li>
+       <li class="nav-item">
+          <a name="" id="" class="btn " href="#" role="button">
+            <i class="fa fa-inbox main-text-color" aria-hidden="true"></i>
+          </a>
+       </li>
+       <li class="nav-item">
+        <div class="dropdown m-0 p-0">
+          <button class="btn btn-default" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <img src="../../../assets/user.png" class="img-circle" >
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu mt-2" aria-labelledby="dropdownMenu1">
+            <li><a class="btn">
+              <span><i class="fa fa-cogs pr-1" aria-hidden="true"></i></span>
+              Settings</a>
+            </li>
+            <li><a class="btn" (click)="logOut()">
+              <span><i class="fa fa-sign-out pr-1" aria-hidden="true"></i></span>
+              Sign-Out</a>
+            </li>
+          </ul>
+        </div>
+       </li>
+    </ul>
+  </div>
   </div>
 </nav>

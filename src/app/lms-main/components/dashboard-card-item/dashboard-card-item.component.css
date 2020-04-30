@@ -1,0 +1,17 @@
+.btn {
+  width: 100%;
+}
+
+
+img {
+  height: 40px;
+}
+
+
+.card-body small {
+  font-size: 12px;
+}
+
+.card-body .card-title {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

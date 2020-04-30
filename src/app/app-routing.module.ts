@@ -11,7 +11,7 @@ const routes: Routes = [
   children: [
     {path: 'home', component: LmsMainComponent, loadChildren: () => import('../app/lms-main/lms-main.module').then(m => m.LmsMainModule)},
     {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path: '**', component: LmsMainComponent}
+    {path: '**', redirectTo: 'home', pathMatch: 'full'}
   ]
 }
 ];

@@ -5,17 +5,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LmsMainRoutingModule } from './lms-main-routing/lms-main-routing.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { DashboardCardItemComponent } from './components/dashboard-card-item/dashboard-card-item.component';
+import { DashboardStudentProgressTabComponent } from './components/dashboard-student-progress-tab/dashboard-student-progress-tab.component';
+import { DashboardAnouncementComponent } from './components/dashboard-anouncement/dashboard-anouncement.component';
 
 
 
 @NgModule({
   exports: [
-    LmsMainComponent,
-    DashboardComponent,
-    ProfileComponent,
-    NavBarComponent
   ],
-  declarations: [LmsMainComponent, DashboardComponent, ProfileComponent, NavBarComponent],
+  declarations: [LmsMainComponent, DashboardComponent, ProfileComponent, NavBarComponent, DashboardCardItemComponent, DashboardStudentProgressTabComponent, DashboardAnouncementComponent],
   imports: [
     LmsMainRoutingModule,
     CommonModule,

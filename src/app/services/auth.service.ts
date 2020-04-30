@@ -12,15 +12,17 @@ export class AuthService {
   baseUrl = environment.apiUrl + 'auth/';
   jwtHelper = new JwtHelperService();
 decodedToken: any;
-currentUser: User;
+private currentUser: User;
   constructor(private http: HttpClient) { }
 
   login(model: any) {
       return this.http.post(this.baseUrl + 'login', model)
       .pipe(map((response: any) => {
         if (response) {
-           localStorage.setItem('token', response.token);
-           localStorage.setItem('user', response.user);
+          console.log(response.user);
+          console.log(response);
+          this.currentUser = response.user;
+          localStorage.setItem('token', response.token);
         }
       }));
   }
@@ -32,5 +34,9 @@ currentUser: User;
   loggedIn() {
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);
+  }
+
+  getCurrentUser() {
+    return this.currentUser;
   }
 }
