@@ -19,10 +19,9 @@ private currentUser: User;
       return this.http.post(this.baseUrl + 'login', model)
       .pipe(map((response: any) => {
         if (response) {
-          console.log(response.user);
-          console.log(response);
           this.currentUser = response.user;
           localStorage.setItem('token', response.token);
+          localStorage.setItem('username', this.currentUser.username);
         }
       }));
   }

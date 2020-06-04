@@ -1,0 +1,40 @@
+<div class="container-fluid" [@fade-in]>
+  <h3 class="mt-4">Dashboard</h3>
+  <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item active">Dashboard</li>
+  </ol>
+  <div class="row">
+      <div class="col-xl-3 col-md-6">
+          <app-sb-dashboard-card [cardTitle]="'LEARN'"
+                                 [cardBootstrapColor]="'bg-primary'"
+                                 [faIcon]="'fa-leanpub '">
+          </app-sb-dashboard-card>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <app-sb-dashboard-card [cardTitle]="'PRACTICE'"
+        [cardBootstrapColor]="'bg-success'"
+        [faIcon]="'fa-pencil'">
+        </app-sb-dashboard-card>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <app-sb-dashboard-card [cardTitle]="'ASSESS'"
+                               [cardBootstrapColor]="'bg-info'"
+                                [faIcon]="'fa-pencil-square-o'">
+        </app-sb-dashboard-card>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <app-sb-dashboard-card [cardTitle]="'IMPROVE'"
+                               [cardBootstrapColor]="'bg-danger'"
+                               [faIcon]="'fa-comments'">
+        </app-sb-dashboard-card>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-xl-6 pt-5">
+          <app-dashboard-anouncement></app-dashboard-anouncement>
+      </div>
+      <div class="col-xl-6 pb-2">
+          <app-dashboard-student-progress-tab></app-dashboard-student-progress-tab>
+      </div>
+  </div>
+</div>

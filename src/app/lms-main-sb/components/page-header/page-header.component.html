@@ -1,0 +1,11 @@
+<h3 class="mt-4">{{pageHeaderModel.title}}</h3>
+<nav aria-label="breadcrumb ">
+  <ol class="breadcrumb" >
+    <div *ngFor="let bc of pageHeaderModel.breadCrums">
+      <li [ngClass]="bc.class">
+        <a *ngIf="bc.class !== 'breadcrumb-item'" [routerLink]="['dashboard']">Home</a>
+        <span *ngIf="bc.class !== 'breadcrumb-item active'">{{bc.title}}</span>
+      </li>
+    </div>
+  </ol>
+</nav>

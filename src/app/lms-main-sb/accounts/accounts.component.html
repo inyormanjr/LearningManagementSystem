@@ -1,0 +1,73 @@
+<div class="container-fluid" [@fade-in]>
+  <h3 class="mt-4">Accounts Management</h3>
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['dashboard']">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Accounts</li>
+    </ol>
+  </nav>
+  <div class="container-fluid">
+    <div class="card mb-4">
+        <div class="card-body d-flex align-items-center justify-content-right">
+          <a name="" id="" class="btn btn-success text-light"  role="button" [routerLink]="['/home/accounts/entry']">
+           <i class="fa fa-pencil" aria-hidden="true"></i> Create New</a>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+          <div class="row">
+              <div class="col-lg-4">
+                <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                  <div class="input-group">
+                      <input class="form-control" type="text" placeholder="Ex. Recardo, BSCS, ETC" aria-label="Search" aria-describedby="basic-addon2" />
+                      <div class="input-group-append">
+                          <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                      </div>
+                  </div>
+              </form>
+              </div>
+          </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive table-sm table-striped">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead class="thead-light">
+                        <tr class="text-center">
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Type</th>
+                            <th>Date Registered</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let account of accounts" class="text-center">
+                            <td>{{account.lastName}}, {{account.firstName}}</td>
+                            <td>{{account.username}}</td>
+                            <td>{{account.type}}</td>
+                            <td>{{account.dateRegistered | date}}</td>
+                            <td class="d-flex justify-content-center">
+                              <a name="" id="" class="btn" [routerLink]="['/home/accounts/update', account.id]"
+                              role="button">
+                                <i class="fa fa-pencil-square-o fa-1x" aria-hidden="true"></i>
+                              </a>
+                              <a name="" id="" class="btn " href="#" role="button">
+                                <i class="fa fa-trash fa-1x" aria-hidden="true"></i>
+                              </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+           <pagination [boundaryLinks]="true"
+              [totalItems]="pagination.totalItems"
+              [itemsPerPage]="pagination.itemsPerPage"
+              [(ngModel)]="pagination.currentPage"
+              (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+          </pagination>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

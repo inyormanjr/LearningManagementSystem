@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <h3 class="mt-4">Content Management</h3>
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['dashboard']">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Content</li>
+    </ol>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mt-5 mb-4">
+        <nav class="nav">
+          <h2>Content Options</h2>
+        </nav>
+      </div>
+      <div class="col-xl-4">
+        <app-sb-dashboard-card
+        [navLinkString]="'/home/accounts'"
+        [faIcon]="'fa-book'"
+        [cardTitle]="'Courses'"
+        [cardBootstrapColor]="'bg-warning'">
+        </app-sb-dashboard-card>
+      </div>
+      <div class="col-xl-4">
+        <app-sb-dashboard-card [faIcon]="'fa-book'" [cardTitle]="'Lessons'" [cardBootstrapColor]="'bg-primary'">
+        </app-sb-dashboard-card>
+      </div>
+      <div class="col-xl-4">
+        <app-sb-dashboard-card [faIcon]="'fa-book'" [cardTitle]="'Assessments'" [cardBootstrapColor]="'bg-success'">
+        </app-sb-dashboard-card>
+      </div>
+      <div class="col-xl-4">
+        <app-sb-dashboard-card [faIcon]="'fa-book'" [cardTitle]="'Activities'" [cardBootstrapColor]="'bg-info'">
+        </app-sb-dashboard-card>
+      </div>
+      <div class="col-xl-4">
+        <app-sb-dashboard-card [faIcon]="'fa-bullhorn'" [cardTitle]="'Anouncements'" [cardBootstrapColor]="'bg-info'">
+        </app-sb-dashboard-card>
+      </div>
+    </div>
+  </div>
+</div>

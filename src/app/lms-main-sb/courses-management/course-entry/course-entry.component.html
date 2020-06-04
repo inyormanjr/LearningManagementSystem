@@ -1,0 +1,262 @@
+<div [@fade-in] class="container-fluid content-wrapper">
+  <h3 class="mt-4">Course Entry</h3>
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/home/dashboard']">Dashboard</a></li>
+      <li  class="breadcrumb-item"><a [routerLink]="routeStringArray">{{previewLinkName}}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Add new course</li>
+    </ol>
+  </nav>
+
+  <div class="container-fluid p-0 mb-4">
+    <div class="card p-3">
+      <form [formGroup]="courseEntryFormGroup">
+
+        <div id="accordion">
+          <div class="card p-0">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                  aria-controls="collapseOne">
+                  General
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+
+                <div class="form-group row">
+                  <div class="col-lg-3 text-right">
+                    <label for="">Course Full Name</label>
+                    <span class="badge badge-danger ml-3">
+                      <i class="fa fa-exclamation-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+                        title="* Is required"></i>
+                    </span>
+                    <span class="badge badge-info ml-3">
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </span>
+                  </div>
+
+                  <div class="col-lg-9">
+                    <input type="text" class="form-control col-lg-8" formControlName="courseName" id="courserFullName"
+                      aria-describedby="coursefullnamehelp" placeholder="Ex. Sample Course, ETC">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-lg-3 text-right">
+                    <label for="">Course Short Name</label>
+                    <span class="badge badge-danger ml-3">
+                      <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="badge badge-info ml-3">
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="col-lg-9">
+                    <input type="text" class="form-control col-lg-4" formControlName="courseShortName"
+                      name="courseShortName" id="" aria-describedby="helpId" placeholder="Ex. CS, COD, PL ETC">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-lg-3 text-right">
+                    <label for="">Category</label>
+                    <span style="visibility: hidden;" class="badge badge-danger ml-3">
+                      <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="badge badge-info ml-3">
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="col-lg-9 d-flex">
+                    <select formControlName="courseCategory" class="form-control col-lg-4" id="courseTypeSelect">
+                      <option value="Programming">Programming</option>
+                      <option value="Hardware">Hardware</option>
+                      <option value="Management">Management</option>
+                    </select>
+                    <span class="col-lg-4">
+                      <a name="" id="" class="btn btn-primary" href="#" role="button">Add Category</a>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-lg-3 text-right">
+                    <label for="">Course Code</label>
+                    <span style="visibility: hidden;" class="badge badge-danger ml-3">
+                      <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="badge badge-info ml-3">
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="col-lg-9">
+                    <input type="text" class="form-control col-lg-4" formControlName="courseCode" name="courseCode" id=""
+                      aria-describedby="helpId" placeholder="Ex. 0001, 0002">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-lg-3 text-right">
+                    <label for="">Start Date</label>
+                    <span style="visibility: hidden;" class="badge badge-danger ml-3">
+                      <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="badge badge-info ml-3">
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="col-lg-9 ">
+                    <input type="text" placeholder="Start Date" class="form-control col-lg-4" formControlName="courseDate"
+                      bsDatepicker>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  Description
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+
+                <div class="form-group row">
+                  <div class="col-lg-3 text-right">
+                    <label for="">Course Summary</label>
+                    <span class="badge badge-danger ml-3">
+                      <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="badge badge-info ml-3">
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="col-lg-9">
+                    <textarea formControlName="courseSummary" name="" id="" class="form-control col-lg-8"
+                      rows="10"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-lg-3 text-right">
+                    <label for="">Course Image</label>
+                    <span class="badge badge-danger ml-3">
+                      <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="badge badge-info ml-3">
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="col-lg-9">
+                    <input formControlName="courseImage" type="file" class="form-control-file"
+                      id="exampleFormControlFile1">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  Instructor Assignment
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+
+                <div class="form-group row">
+                  <div class="col-lg-3 text-right">
+                    <label for="">Instructors</label>
+                    <span style="visibility: hidden;" class="badge badge-danger ml-3">
+                      <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="badge badge-info ml-3">
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="col-lg-9">
+                    <div class="input-group p-0 col-lg-5">
+                      <select class="custom-select" id="inputGroupSelect04" name="instructors"
+                        (ngModelChange)="getSelectedIntstructor($event)" [ngModel]="selectedInstructor"
+                        [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let instructor of instructorsSelections" [ngValue]="instructor">
+                          {{instructor.firstName}},
+                          {{instructor.lastName}}
+                        </option>
+                      </select>
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"
+                          (click)="includeInstructor(selectedInstructor)">Include</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-lg-3 text-right">
+                    <label for="">Assigned Instructors</label>
+                    <span class="badge badge-danger ml-3">
+                      <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    </span>
+                    <span class="badge badge-info ml-3">
+                      <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="col-lg-9">
+                    <div class="card p-0 col-lg-7">
+                      <div class="card-header">
+                        Instructor List
+                      </div>
+                      <div class="card-body p-0">
+                        <div *ngIf="!courseEntryFormGroup.get('assignedInstructors').value.length"
+                          class="text-center p-5">
+                          <h5>No instructor added yet.</h5>
+                        </div>
+                        <ng-container *ngIf="courseEntryFormGroup.get('assignedInstructors').value.length"
+                          formArrayName="assignedInstructors">
+                          <ul class="list-group">
+                            <li *ngFor="let instructor of instructors.controls; index as i"
+                              class="list-group-item d-flex justify-content-between">
+                              {{instructor.value.lastName}}, {{instructor.value.firstName}}
+                              <a name="" id="" class="btn " (click)="removeInstructor(i)" role="button">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                              </a>
+                            </li>
+                          </ul>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- End of Accordion -->
+      </form>
+      <div class="card-footer">
+        <div class="input-group justify-content-center m-4">
+          <button type="button" class="btn btn-success" (click)="isNew ? save() : update()">Save Course
+            <i class="fa fa-save m-2" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

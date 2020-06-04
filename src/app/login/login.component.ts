@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
         this.loginModel = {};
         this.router.navigate(['/home']);
     }, error => {
+      this.isLoading = false;
       this.alertify.error(error);
      });
    }

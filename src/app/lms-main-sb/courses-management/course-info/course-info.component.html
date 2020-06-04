@@ -1,0 +1,62 @@
+<div class="container-fluid d-flex flex-column content-wrapper  " style="height:100%; overflow-y: auto;">
+  <h3 class="mt-4">Course Information</h3>
+  <nav arial-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a [routerLink]="['dashboard']">Home</a>
+      </li>
+        <li class="breadcrumb-item"><a [routerLink]="['/home/courses']">Courses</a></li>
+          <li class="breadcrumb-item">
+            <a class="breadcrumb-item active" aria-current="page">{{course.courseName}}</a>
+          </li>
+    </ol>
+  </nav>
+
+  <div class="container-fluid flex-fill d-flex flex-column">
+    <ul id="tab-view" class="nav nav-tabs mt-3 d-flex justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#overview">Overview
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#lessons">Lessons
+          <span class="badge badge-pill badge-danger">{{course.lessons.length | number}}</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#exercises">Exercises
+          <span class="badge badge-pill badge-success">0</span>
+        </a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#assessment">Assessments
+            <span class="badge badge-pill badge-warning">0</span>
+          </a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#resources">Student Resources
+        <span class="badge badge-pill badge-success">0</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-body mt-2 mb-3 flex-fill d-flex flex-column">
+      <div class="tab-content flex-fill d-flex flex-column w-100">
+        <div id="overview" class="tab-pane active flex-fill">
+          <app-course-info-details [course]="course"></app-course-info-details>
+        </div>
+        <div id="lessons" class="tab-pane fade  flex-fill">
+          <app-lessons-management [course]="course" ></app-lessons-management>
+        </div>
+        <div id="exercises" class="tab-pane fade flex-fill">
+          Exercises Tab
+        </div>
+        <div id="assessment" class="tab-pane fade flex-fill">
+          assessment Tab
+        </div>
+        <div id="resources" class="tab-pane fade flex-fill">
+          resources Tab
+        </div>
+    </div>
+  </div>
+</div>

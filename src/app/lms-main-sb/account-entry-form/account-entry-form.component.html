@@ -1,0 +1,102 @@
+<div class="container-fluid" [@fade-in]>
+  <h3 class="mt-4">Account Entry</h3>
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/home/dashboard']">Home</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/home/accounts']">Accounts</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Entry</li>
+    </ol>
+  </nav>
+    <div class="container p-4">
+      <div *ngIf="!isUpdate" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>New Account Info!</strong> New account's password will be auto generated and will be sent to the given email.
+        Please Check your email once the registration is done.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="row justify-content-center mt-2">
+        <div class="col-lg-6">
+      <form [formGroup]="registerForm" (ngSubmit)="!isUpdate ? register(): updateUser()">
+        <div class="form-group">
+          <label for="userTypeSelect">User Type</label>
+          <select formControlName="type" class="form-control" id="userTypeSelect">
+            <option value="Administrator">Administrator</option>
+            <option value="Instructor">Instructor</option>
+            <option value="Student">Student</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Username (Email)</label>
+          <input
+          formControlName="username"
+          [ngClass]="{'is-invalid': registerForm.get('username').errors && registerForm.get('username').touched}"
+          type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+          <div class="invalid-feedback"
+                        *ngIf="registerForm.get('username').hasError('required') && registerForm.get('username').touched">
+                        Username is required
+                    </div>
+                    <div class="invalid-feedback alert-warning"
+                        *ngIf="registerForm.get('username').hasError('email') && registerForm.get('username').touched">
+                        Not a valid email format.
+                    </div>
+        </div>
+        <div class="form-group" *ngIf="registerForm.get('type').value == 0">
+          <label for="email">Password</label>
+          <input
+          formControlName="password"
+          [ngClass]="{'is-invalid': registerForm.get('password').errors && registerForm.get('password').touched}"
+          type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter password">
+          <div class="invalid-feedback"
+                        *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
+                        password is required
+                    </div>
+                    <div class="invalid-feedback alert-warning"
+                        *ngIf="registerForm.get('password').hasError('minlength') || registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">
+                        Minimum Length is 8 & Maximum is 15
+                    </div>
+        </div>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+          formControlName="firstName"
+          [ngClass]="{'is-invalid': registerForm.get('firstName').errors && registerForm.get('firstName').touched}"
+           type="text" class="form-control" id="firstName"  placeholder="Enter first name">
+           <div class="invalid-feedback"
+           *ngIf="registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched">
+           First Name is required
+           </div>
+        </div>
+
+        <div class="form-group">
+          <label for="middleName">Middle Name</label>
+          <input
+          formControlName="middleName"
+          [ngClass]="{'is-invalid': registerForm.get('middleName').errors && registerForm.get('middleName').touched}"
+          type="text" class="form-control" id="middleName"  placeholder="Enter middle name">
+          <div class="invalid-feedback"
+          *ngIf="registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched">
+          First Name is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+          formControlName="lastName"
+          [ngClass]="{'is-invalid': registerForm.get('lastName').errors && registerForm.get('lastName').touched}"
+          type="text" class="form-control" id="lastName"  placeholder="Enter Last name">
+        </div>
+        <div class="invalid-feedback"
+        *ngIf="registerForm.get('lastName').hasError('required') && registerForm.get('lastName').touched">
+        First Name is required
+        </div>
+        <div class="row justify-content-center">
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button [disabled]="isUpdate" class="btn btn-danger" (click)="clearForm()">Clear</button>
+        </div>
+      </form>
+        </div>
+      </div>
+    </div>
+  </div>

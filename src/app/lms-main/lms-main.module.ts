@@ -14,7 +14,11 @@ import { DashboardAnouncementComponent } from './components/dashboard-anouncemen
 @NgModule({
   exports: [
   ],
-  declarations: [LmsMainComponent, DashboardComponent, ProfileComponent, NavBarComponent, DashboardCardItemComponent, DashboardStudentProgressTabComponent, DashboardAnouncementComponent],
+  declarations: [LmsMainComponent, DashboardComponent,
+     ProfileComponent, NavBarComponent,
+      DashboardCardItemComponent,
+      DashboardStudentProgressTabComponent,
+       DashboardAnouncementComponent],
   imports: [
     LmsMainRoutingModule,
     CommonModule,

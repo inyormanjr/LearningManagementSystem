@@ -1,0 +1,47 @@
+<div [@fade-in] class="container-fluid content-wrapper">
+  <h3 class="mt-4">Courses Management</h3>
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['dashboard']">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Courses</li>
+    </ol>
+  </nav>
+  <div class="container-fluid mb-4">
+    <div class="card mb-4">
+      <div class="card-body d-flex align-items-center justify-content-right">
+        <a name="" id="" class="btn btn-success text-light" role="button" [routerLink]="['/home/courses/entry']">
+          <i class="fa fa-pencil" aria-hidden="true"></i> Create New</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-lg-12">
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+              <div class="input-group">
+                <input class="form-control" type="text" placeholder="Ex. C#, Python, ETC" aria-label="Search"
+                  aria-describedby="basic-addon2" />
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row p-4 d-flex justify-content-center">
+          <div *ngFor="let course of courseData">
+            <app-course-card (oncClick)="updateCourse(course.id)" [courseCardModel]="course"></app-course-card>
+          </div>
+        </div>
+      </div>
+      <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+        [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;"
+        firstText="&laquo;" lastText="&raquo;">
+
+      </pagination>
+    </div>
+  </div>
+
+</div>

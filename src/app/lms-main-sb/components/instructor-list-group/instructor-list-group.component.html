@@ -1,0 +1,13 @@
+<div *ngIf="!instructors.length" class="text-center p-5">
+  <h5>No instructor added yet.</h5>
+
+</div>
+
+<ul *ngIf="instructors.length" class="list-group">
+  <li *ngFor="let instructor of instructors" class="list-group-item d-flex justify-content-between">
+      {{instructor?.firstName}}, {{instructor?.lastName}}
+      <a name="" id="" class="btn " href="#" role="button">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </a>
+  </li>
+</ul>
