@@ -91,12 +91,14 @@ export class CourseEntryComponent implements OnInit {
 
   includeInstructor(sInstructor) {
     const listOfInstructors = this.getIncludedInstructor();
-    if (listOfInstructors.value.indexOf(sInstructor) === -1) {
+    console.log(sInstructor);
+    console.log(listOfInstructors.value);
+    if (listOfInstructors.value.map((e) =>  e.id).indexOf(sInstructor.id) === -1) {
       (this.courseEntryFormGroup.get('assignedInstructors') as FormArray).push(
         new FormControl(this.selectedInstructor)
       );
     } else {
-      this.alertify.warning('Instructor already exist');
+      this.alertify.error('Instructor already exist');
     }
   }
 

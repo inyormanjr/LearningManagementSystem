@@ -33,6 +33,7 @@ import { CoursePageListResolver } from '../resolvers/course.pagelist.resolver';
 import { CourseInfoComponent } from './courses-management/course-info/course-info.component';
 import { CourseInfoDetailsComponent } from './courses-management/course-info-details/course-info-details.component';
 import { LessonEntryComponent } from './courses-management/lessons-management/lesson-entry/lesson-entry.component';
+import { LessonDetailsEntryComponent } from './lessons-management/components/lesson-details-entry/lesson-details-entry.component';
 
 
 
@@ -61,6 +62,7 @@ import { LessonEntryComponent } from './courses-management/lessons-management/le
     CourseInfoComponent,
     CourseInfoDetailsComponent,
     LessonEntryComponent,
+    LessonDetailsEntryComponent,
   ],
 
   imports: [

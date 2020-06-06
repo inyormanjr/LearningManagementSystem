@@ -37,6 +37,7 @@ export class LessonEntryComponent implements OnInit {
     console.log(this.lessonFormGroup.value);
   }
   initializeExistingState() {
+    console.log(this.course);
     this.course.lessons.forEach((lesson) => {
       const tobeAddedLesson = this._lesson;
       tobeAddedLesson.patchValue(lesson);
@@ -82,6 +83,15 @@ export class LessonEntryComponent implements OnInit {
       index: 0,
       title: ['', [Validators.required]],
       details: ['', [Validators.required]],
+      sample: ['', [Validators.required]],
+      exercise: this.exercise,
+    });
+  }
+
+  get exercise(): FormGroup {
+    return this.fbBuilder.group({
+      exerciseDetails: ['', [Validators.required]],
+      exerciseBasis: ['', [Validators.required]]
     });
   }
 
@@ -113,6 +123,8 @@ export class LessonEntryComponent implements OnInit {
       index: indexValue,
       title: '',
       details: '',
+      sample: '',
+      exercise: this.exercise
     });
   }
 

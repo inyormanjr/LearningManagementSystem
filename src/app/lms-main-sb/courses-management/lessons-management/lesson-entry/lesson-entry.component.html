@@ -21,9 +21,9 @@
           <div class="form-group row">
             <div class="col-md-2 text-right">
               <label for="">Title</label>
-              <span class="badge badge-danger ml-3">
-                <i class="fa fa-exclamation-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right"
-                  title="* Is required"></i>
+              <span class="badge badge-danger ml-3 "  data-toggle="tooltip" data-placement="bottom"
+                  title="This field is required required">
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
               </span>
               <span class="badge badge-info ml-3">
                 <i class="fa fa-question-circle" aria-hidden="true"></i>
@@ -121,6 +121,48 @@
                     rows="10"></textarea>
                 </div>
               </div>
+              <div class="form-group row">
+                <div class="col-md-2 text-right">
+                  <label for="">Example</label>
+                  <span class="badge badge-danger ml-3">
+                    <i class="fa fa-exclamation-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+                      title="* Is required"></i>
+                  </span>
+                  <span class="badge badge-info ml-3">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                  </span>
+                </div>
+                <div class="col-md-10">
+                  <textarea class="form-control col-md-12" formControlName="sample" placeholder="Sample Content" name="" id=""
+                    rows="10"> </textarea>
+                </div>
+              </div>
+              <div formGroupName="exercise" class="form-group row">
+                <div class="col-md-2 text-right">
+                  <label for="">Exercise</label>
+                  <span class="badge badge-danger ml-3">
+                    <i class="fa fa-exclamation-circle" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+                      title="* Is required"></i>
+                  </span>
+                  <span class="badge badge-info ml-3">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                  </span>
+                </div>
+                <div class="col-md-10">
+                  <div class=" d-flex justify-content-center">
+                      <div class="entry-container col m-1 p-0">
+                        <label for="exerciseDetails">Exercise (Answerable)</label>
+                        <textarea class="form-control " formControlName="exerciseDetails" placeholder="Sample Content" name="" id=""
+                          rows="10"> </textarea>
+                      </div>
+                      <div class="entry-container col m-1 p-0">
+                        <label for="exerciseDetails">Exercise Basis</label>
+                        <textarea class="form-control " formControlName="exerciseBasis" placeholder="Sample Content" name="" id=""
+                          rows="10"> </textarea>
+                      </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class=" row mb-4">
               <div class="col-md-3">
@@ -144,6 +186,8 @@
           <i class="fa fa-save" aria-hidden="true"></i>
         </button>
       </div>
+
+      <pre>{{lessonFormGroup.value | json}}</pre>
     </form>
   </div>
 </div>

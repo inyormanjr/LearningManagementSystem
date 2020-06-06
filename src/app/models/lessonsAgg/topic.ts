@@ -4,5 +4,6 @@ export interface Topic {
   index: number;
   title: string;
   details: string;
-  topicExercise: TopicExercise;
+  sample: string;
+  exercise: TopicExercise;
 }
