@@ -8,6 +8,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DashboardCardItemComponent } from './components/dashboard-card-item/dashboard-card-item.component';
 import { DashboardStudentProgressTabComponent } from './components/dashboard-student-progress-tab/dashboard-student-progress-tab.component';
 import { DashboardAnouncementComponent } from './components/dashboard-anouncement/dashboard-anouncement.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -15,6 +16,7 @@ import { DashboardAnouncementComponent } from './components/dashboard-anouncemen
   exports: [
   ],
   declarations: [LmsMainComponent, DashboardComponent,
+    CKEditorModule,
      ProfileComponent, NavBarComponent,
       DashboardCardItemComponent,
       DashboardStudentProgressTabComponent,

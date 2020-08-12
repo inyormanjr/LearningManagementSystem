@@ -5,6 +5,7 @@ import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { Course } from 'src/app/models/CourseAgg/course.model';
 import { CoursesService } from 'src/app/services/courses.service';
 import { Lesson } from 'src/app/models/lessonsAgg/lesson';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-lesson-entry',
@@ -12,6 +13,7 @@ import { Lesson } from 'src/app/models/lessonsAgg/lesson';
   styleUrls: ['./lesson-entry.component.css'],
 })
 export class LessonEntryComponent implements OnInit {
+  public editor = ClassicEditor;
   lessonFormGroup: FormGroup;
   course: Course;
 
@@ -34,10 +36,8 @@ export class LessonEntryComponent implements OnInit {
 
   initialNewFormState() {
     (this.lessonFormGroup.controls.lessons as FormArray).push(this._lesson);
-    console.log(this.lessonFormGroup.value);
   }
   initializeExistingState() {
-    console.log(this.course);
     this.course.lessons.forEach((lesson) => {
       const tobeAddedLesson = this._lesson;
       tobeAddedLesson.patchValue(lesson);
@@ -90,6 +90,7 @@ export class LessonEntryComponent implements OnInit {
 
   get exercise(): FormGroup {
     return this.fbBuilder.group({
+      instructions: ['', [Validators.required]],
       exerciseDetails: ['', [Validators.required]],
       exerciseBasis: ['', [Validators.required]]
     });
@@ -108,7 +109,9 @@ export class LessonEntryComponent implements OnInit {
   }
 
   removeLesson(index) {
+     this.alertify.confirm('Do you want to delete this Lesson?', () => {
     (this.lessonFormGroup.controls.lessons as FormArray).removeAt(index);
+     });
   }
 
   public topicsControlArray(lessonIndex): FormArray {

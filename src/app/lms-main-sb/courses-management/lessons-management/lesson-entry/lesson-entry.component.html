@@ -8,16 +8,22 @@
     </ol>
   </nav>
   <div class="container mt-5">
-    <div class="row  mt-5 mb-2">
-      <div class="col-md-2 text-right">
-        <h4>Lesson Details</h4>
-      </div>
+    <div class="row justify-content-end">
+      <a name="" id="" class="btn btn-primary text-light"  role="button">Preview</a>
     </div>
     <form [formGroup]="lessonFormGroup">
       <div formArrayName="lessons" class="wrapper">
         <div *ngFor="let lesson of this.lessonFormGroup.controls.lessons.value;
         let lessonIndex = index; trackBy: trackByFn"
         class="form-header" [formGroupName]="lessonIndex">
+          <div class="row  mt-5 mb-2 justify-content-between align-items-center">
+            <div class="col-md-3 text-right">
+              <h4>({{lessonIndex + 1}}) Lesson Details</h4>
+            </div>
+            <div *ngIf="lessonIndex > 0" class="actions mr-4">
+              <a name="" id="" class="btn btn-primary text-light" (click)="removeLesson(lessonIndex)" role="button">Remove Lession</a>
+            </div>
+          </div>
           <div class="form-group row">
             <div class="col-md-2 text-right">
               <label for="">Title</label>
@@ -117,8 +123,7 @@
                   </span>
                 </div>
                 <div class="col-md-10">
-                  <textarea class="form-control col-md-12" formControlName="details" placeholder="Topic Content" name="" id=""
-                    rows="10"></textarea>
+                  <ckeditor [editor]="editor" formControlName="details"></ckeditor>
                 </div>
               </div>
               <div class="form-group row">
@@ -133,8 +138,8 @@
                   </span>
                 </div>
                 <div class="col-md-10">
-                  <textarea class="form-control col-md-12" formControlName="sample" placeholder="Sample Content" name="" id=""
-                    rows="10"> </textarea>
+                  <ckeditor [editor]="editor" formControlName="sample" ></ckeditor>
+
                 </div>
               </div>
               <div formGroupName="exercise" class="form-group row">
@@ -149,15 +154,20 @@
                   </span>
                 </div>
                 <div class="col-md-10">
+                  <div class="col-md-12 p-0 mb-3">
+                        <label for="exerciseDetails">Instructions</label>
+                        <textarea class="form-control " formControlName="instructions" placeholder="instructions" name="" id=""
+                          rows="5"> </textarea>
+                  </div>
                   <div class=" d-flex justify-content-center">
                       <div class="entry-container col m-1 p-0">
                         <label for="exerciseDetails">Exercise (Answerable)</label>
-                        <textarea class="form-control " formControlName="exerciseDetails" placeholder="Sample Content" name="" id=""
+                        <textarea class="form-control " formControlName="exerciseDetails" placeholder="Exercise answerable " name="" id=""
                           rows="10"> </textarea>
                       </div>
                       <div class="entry-container col m-1 p-0">
                         <label for="exerciseDetails">Exercise Basis</label>
-                        <textarea class="form-control " formControlName="exerciseBasis" placeholder="Sample Content" name="" id=""
+                        <textarea class="form-control " formControlName="exerciseBasis" placeholder="Exercise answerable basis" name="" id=""
                           rows="10"> </textarea>
                       </div>
                   </div>
@@ -186,8 +196,6 @@
           <i class="fa fa-save" aria-hidden="true"></i>
         </button>
       </div>
-
-      <pre>{{lessonFormGroup.value | json}}</pre>
     </form>
   </div>
 </div>

@@ -34,6 +34,7 @@ import { CourseInfoComponent } from './courses-management/course-info/course-inf
 import { CourseInfoDetailsComponent } from './courses-management/course-info-details/course-info-details.component';
 import { LessonEntryComponent } from './courses-management/lessons-management/lesson-entry/lesson-entry.component';
 import { LessonDetailsEntryComponent } from './lessons-management/components/lesson-details-entry/lesson-details-entry.component';
+import { LessonPreviewComponent } from './courses-management/lessons-management/lesson-preview/lesson-preview.component';
 
 
 
@@ -63,6 +64,7 @@ import { LessonDetailsEntryComponent } from './lessons-management/components/les
     CourseInfoDetailsComponent,
     LessonEntryComponent,
     LessonDetailsEntryComponent,
+    LessonPreviewComponent,
   ],
 
   imports: [
