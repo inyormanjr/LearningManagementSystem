@@ -4,6 +4,9 @@ import { AlertifyService } from 'src/app/services/alertify.service';
 import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { Course } from 'src/app/models/CourseAgg/course.model';
 import { CoursesService } from 'src/app/services/courses.service';
+
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { fadeIn } from 'ngx-animate';
 import { Lesson } from 'src/app/models/lessonsAgg/lesson';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -11,6 +14,9 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
   selector: 'app-lesson-entry',
   templateUrl: './lesson-entry.component.html',
   styleUrls: ['./lesson-entry.component.css'],
+  animations: [
+    trigger('fade-in', [transition('* <=> *', useAnimation(fadeIn))]),
+  ],
 })
 export class LessonEntryComponent implements OnInit {
   public editor = ClassicEditor;
@@ -70,12 +76,12 @@ export class LessonEntryComponent implements OnInit {
   }
 
   get _lesson(): FormGroup {
-      return this.fbBuilder.group({
-        title: ['', [Validators.required]],
-        subTitle: ['', [Validators.required]],
-        duration: [5, [Validators.required, Validators.min(1)]],
-        topics: this.fbBuilder.array([]),
-      });
+    return this.fbBuilder.group({
+      title: ['', [Validators.required]],
+      subTitle: ['', [Validators.required]],
+      duration: [5, [Validators.required, Validators.min(1)]],
+      topics: this.fbBuilder.array([]),
+    });
   }
 
   get topic(): FormGroup {
@@ -92,14 +98,14 @@ export class LessonEntryComponent implements OnInit {
     return this.fbBuilder.group({
       instructions: ['', [Validators.required]],
       exerciseDetails: ['', [Validators.required]],
-      exerciseBasis: ['', [Validators.required]]
+      exerciseBasis: ['', [Validators.required]],
     });
   }
 
   addTopic(lessonIndex) {
     const topics = this.topicsControlArray(lessonIndex);
     console.log(topics.length);
-    const topicIndex = topics.length ===  0 ? 0 : topics.length - 1;
+    const topicIndex = topics.length === 0 ? 0 : topics.length - 1;
     const currentIndex = topicIndex === 0 ? 0 : topics.value[topicIndex].index;
     topics.push(this.generateNewTopicFormControl(currentIndex + 1));
   }
@@ -109,9 +115,9 @@ export class LessonEntryComponent implements OnInit {
   }
 
   removeLesson(index) {
-     this.alertify.confirm('Do you want to delete this Lesson?', () => {
-    (this.lessonFormGroup.controls.lessons as FormArray).removeAt(index);
-     });
+    this.alertify.confirm('Do you want to delete this Lesson?', () => {
+      (this.lessonFormGroup.controls.lessons as FormArray).removeAt(index);
+    });
   }
 
   public topicsControlArray(lessonIndex): FormArray {
@@ -127,7 +133,7 @@ export class LessonEntryComponent implements OnInit {
       title: '',
       details: '',
       sample: '',
-      exercise: this.exercise
+      exercise: this.exercise,
     });
   }
 

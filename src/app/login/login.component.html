@@ -1,5 +1,5 @@
 <div class="body">
-  <div class="overlay" *ngIf="isLoading">
+  <div class="overlay" *ngIf="loading$ | async">
     <div class="spinner-wrapper d-flex align-items-center justify-content-center">
       <div class="loading-item">
         <div class="spinner-border" role="status">

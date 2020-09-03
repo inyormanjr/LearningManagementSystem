@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,10 @@ decodedToken: any;
 private currentUser: User;
   constructor(private http: HttpClient) { }
 
-  login(model: any) {
+   login(model: any): Observable<User> {
       return this.http.post(this.baseUrl + 'login', model)
-      .pipe(map((response: any) => {
-        if (response) {
-          this.currentUser = response.user;
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('username', this.currentUser.username);
-        }
+        .pipe(map((response: any) => {
+          return response.user;
       }));
   }
 

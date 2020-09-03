@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-lesson-preview',
@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lesson-preview.component.css']
 })
 export class LessonPreviewComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
