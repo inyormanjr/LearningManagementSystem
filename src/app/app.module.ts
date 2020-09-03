@@ -9,6 +9,7 @@ import { ErrorInterceptorProvider } from './services/error.interceptor';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule, MetaReducer, ActionReducer } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { JwtModule } from '@auth0/angular-jwt';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
@@ -19,6 +20,7 @@ import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { reducer } from './__reducers/appReducer';
 import { authReducer } from './__reducers/auth.reducer';
+import { AuthEffects } from './__effects/auth.effects';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -39,18 +41,20 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        whitelistedDomains: ['localhost:5001'],
-        blacklistedRoutes: ['localhost:5001/api/auth'],
+        whitelistedDomains: ["localhost:5001"],
+        blacklistedRoutes: ["localhost:5001/api/auth"],
       },
     }),
     StoreModule.forRoot({
       mainApp: reducer,
-      auth: authReducer
+      auth: authReducer,
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
+    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forFeature([]),
     StoreRouterConnectingModule.forRoot(),
   ],
   providers: [ErrorInterceptorProvider, AuthService],

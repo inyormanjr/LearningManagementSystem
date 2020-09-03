@@ -20,8 +20,6 @@ export class SbTopNavComponent implements OnInit {
      this.isToggled.emit(!this.intialToggleState);
   }
   logOut() {
-    localStorage.clear();
     this.store.dispatch(AuthActions.logout());
-    this.router.navigateByUrl('login');
   }
 }
