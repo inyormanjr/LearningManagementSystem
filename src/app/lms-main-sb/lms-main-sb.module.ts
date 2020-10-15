@@ -35,6 +35,9 @@ import { CourseInfoDetailsComponent } from './courses-management/course-info-det
 import { LessonEntryComponent } from './courses-management/lessons-management/lesson-entry/lesson-entry.component';
 import { LessonDetailsEntryComponent } from './lessons-management/components/lesson-details-entry/lesson-details-entry.component';
 import { LessonPreviewComponent } from './courses-management/lessons-management/lesson-preview/lesson-preview.component';
+import { LessonModalComponent } from './lessons-management/components/lesson-modal/lesson-modal.component';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 
 
@@ -54,6 +57,7 @@ import { LessonPreviewComponent } from './courses-management/lessons-management/
     ContentManagementComponent,
     CoursesManagementComponent,
     LessonsManagementComponent,
+    LessonModalComponent,
     AssessmentManagementComponent,
     ActivitiesManagementComponent,
     PageHeaderComponent,

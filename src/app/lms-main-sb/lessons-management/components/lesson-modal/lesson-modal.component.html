@@ -1,0 +1,23 @@
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Lesson Details ({{lesson.title}})</h4>
+      </div>
+      <div class="modal-body">
+       <section class="container d-flex flex-column  pt-2 pb-3">
+  <div class="title d-flex flex-row justify-content-between">
+
+  </div>
+    <div class="topics-list">
+      <h5>Topics ({{lesson.topics.length}})</h5>
+      <accordion [isAnimated]="true">
+        <accordion-group [heading]='topic.title'  *ngFor="let topic of lesson.topics">
+          <div [innerHTML]="topic.details"></div>
+        </accordion-group>
+      </accordion>
+    </div>
+</section>
+
+      </div>
+
+    </div>

@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Lesson } from 'src/app/models/lessonsAgg/lesson';
 import { Course } from 'src/app/models/CourseAgg/course.model';
 
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { LessonModalComponent } from './components/lesson-modal/lesson-modal.component';
+
 @Component({
   selector: 'app-lessons-management',
   templateUrl: './lessons-management.component.html',
@@ -9,65 +12,16 @@ import { Course } from 'src/app/models/CourseAgg/course.model';
 })
 export class LessonsManagementComponent implements OnInit {
   @Input() course: Course;
-  lessons: Lesson[] = [
-    {
-      title: 'C# - Home',
-      subTitle: '',
-      dateCreated: null,
-      duration: 5,
-      topics: [] },
-    {
-      title: 'C# - Environment',
-      subTitle: '',
-      dateCreated: null,
-      duration: 22,
-      topics: [],
-    },
-    {
-      title: 'C# - Programming Structure',
-      subTitle: '',
-      dateCreated: null,
-      duration: 22,
-      topics: [],
-    },
-    {
-      title: 'C# - Basic Syntax',
-      subTitle: '',
-      dateCreated: null,
-      duration: 22,
-      topics: [],
-    },
-    {
-      title: 'C# - Data Types',
-      subTitle: '',
-      dateCreated: null,
-      duration: 33,
-      topics: [],
-    },
-    {
-      title: 'C# - Data Types',
-      subTitle: '',
-      dateCreated: null,
-      duration: 2,
-      topics: [],
-    },
-    {
-      title: 'C# - Data Types',
-      subTitle: '',
-      dateCreated: null,
-      duration: 5,
-      topics: [],
-    },
-    {
-      title: 'C# - Data Types',
-      subTitle: '',
-      dateCreated: null,
-      duration: 5,
-      topics: [],
-    },
-  ];
-
-  constructor() {}
+  bsModalRef: BsModalRef;
+  constructor(private modalService: BsModalService) {}
 
   ngOnInit(): void {}
+
+  showLessonPreviewDialog(lesson) {
+    const initialState = { lesson };
+
+    this.bsModalRef = this.modalService.show(LessonModalComponent, Object.assign({initialState}, {class: 'modal-lg'}));
+    this.bsModalRef.content.closeBtnName = 'Close';
+    
+  }
 }

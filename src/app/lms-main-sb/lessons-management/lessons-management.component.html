@@ -2,7 +2,15 @@
   <div class="header">
     <nav class="nav-bar m-3  d-flex justify-content-between align-items-center">
       <h1 class="display-5">Lessons</h1>
-      <button type="button" [routerLink]="['/home/courses/lessons/entry',course.id]" class="btn btn-outline-primary">Create</button>
+      <button type="button" [routerLink]="['/home/courses/lessons/entry',course.id]" class="btn btn-outline-primary">
+        <ng-container *ngIf="course.lessons.length > 0; else nolessonsTemplate">
+          Update
+        </ng-container>
+        <ng-template #nolessonsTemplate>
+          Create
+        </ng-template>
+
+      </button>
     </nav>
     <hr>
   </div>
@@ -38,6 +46,7 @@
           <th scope="col">Title</th>
           <th scope="col">Duration (Estimated)</th>
           <th scope="col">No. of Topics</th>
+          <th>Options</th>
         </tr>
       </thead>
       <tbody>
@@ -46,6 +55,7 @@
           <td>{{lesson.title}}</td>
           <td>{{lesson.duration}} Mins</td>
           <td>{{lesson.topics.length}}</td>
+          <td><a name="" id="" class="btn btn-primary text-light" (click)="showLessonPreviewDialog(lesson)" role="button">View</a></td>
         </tr>
       </tbody>
     </table>
