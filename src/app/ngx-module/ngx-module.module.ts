@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import {  PaginationModule } from 'ngx-bootstrap/pagination';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
-import { AccordionModule } from "ngx-bootstrap/accordion";
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
@@ -12,9 +13,10 @@ import { CommonModule } from '@angular/common';
   imports: [
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    TabsModule.forRoot(),
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  exports: [PaginationModule, BsDatepickerModule, AccordionModule],
+  exports: [PaginationModule, BsDatepickerModule, TabsModule, AccordionModule],
 })
 export class NgxModuleModule {}
