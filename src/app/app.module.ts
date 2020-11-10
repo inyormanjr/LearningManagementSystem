@@ -20,6 +20,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { reducer } from './__reducers/appReducer';
 import { authReducer } from './__reducers/auth.reducer';
 import { AuthEffects } from './__effects/auth.effects';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -35,6 +36,7 @@ export function tokenGetter() {
     ReactiveFormsModule,
     CKEditorModule,
     HttpClientModule,
+    MonacoEditorModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter,

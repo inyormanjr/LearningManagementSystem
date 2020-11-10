@@ -22,6 +22,5 @@ export class LessonsManagementComponent implements OnInit {
 
     this.bsModalRef = this.modalService.show(LessonModalComponent, Object.assign({initialState}, {class: 'modal-lg'}));
     this.bsModalRef.content.closeBtnName = 'Close';
-    
   }
 }

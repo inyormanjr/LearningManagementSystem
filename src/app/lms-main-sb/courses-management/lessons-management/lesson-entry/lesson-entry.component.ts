@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { AlertifyService } from 'src/app/services/alertify.service';
-import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
+import { ActivatedRouteSnapshot, ActivatedRoute, Event } from '@angular/router';
 import { Course } from 'src/app/models/CourseAgg/course.model';
 import { CoursesService } from 'src/app/services/courses.service';
 
@@ -9,6 +9,7 @@ import { trigger, transition, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ngx-animate';
 import { Lesson } from 'src/app/models/lessonsAgg/lesson';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-lesson-entry',
@@ -22,6 +23,7 @@ export class LessonEntryComponent implements OnInit {
   public editor = ClassicEditor;
   lessonFormGroup: FormGroup;
   course: Course;
+  editorOptions = { theme: 'vs-dark', language: 'csharp', automaticLayout: true };
 
   constructor(
     private fbBuilder: FormBuilder,
@@ -58,10 +60,31 @@ export class LessonEntryComponent implements OnInit {
     });
   }
 
+  copyExerciseBasisToAnswerable(lessonIndex, topicIndex) {
+    const selectedTopic = (this.topicsControlArray(lessonIndex) as FormArray).controls[topicIndex].get('exercise');
+    const exerciseBasis = selectedTopic.get('exerciseBasis');
+    selectedTopic.get('exerciseDetails').setValue(exerciseBasis.value);
+
+  }
+
+  changeToUnderscore(lessonIndex, topicIndex) {
+
+  }
+
+  initEditor(editor) {
+    const position = editor.getPosition();
+    console.log(position);
+  }
+
+
   initializeForm() {
     this.lessonFormGroup = this.fbBuilder.group({
       lessons: this.fbBuilder.array([]),
     });
+  }
+
+  getText(event) {
+    console.log(event);
   }
 
   saveCourse() {

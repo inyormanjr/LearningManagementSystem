@@ -1,0 +1,63 @@
+<div class="container-fluid p-1 content-wrapper d-flex flex-column" style="height:100%;">
+  <div class="header">
+    <nav class="nav-bar m-3  d-flex justify-content-between align-items-center">
+      <h1 class="display-5">Exercises</h1>
+      <button type="button" [routerLink]="['/home/courses/lessons/entry',1]" class="btn btn-outline-primary">
+        <ng-container *ngIf=" 0; else nolessonsTemplate">
+          Update
+        </ng-container>
+        <ng-template #nolessonsTemplate>
+          Create
+        </ng-template>
+
+      </button>
+    </nav>
+    <hr>
+  </div>
+  <div class="container-fluid flex-fill d-flex flex-column pl-5 pr-5 pt-3">
+    <div class="row d-flex justify-content-between">
+      <div class="search">
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+          <div class="input-group">
+            <input class="form-control" type="text" placeholder="Ex. C#, Python, ETC" aria-label="Search"
+              aria-describedby="basic-addon2" />
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="option1" autocomplete="off" checked>
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <i class="fa fa-th" aria-hidden="true"></i>
+        </label>
+      </div>
+    </div>
+    <div class="row mt-5 flex-fill">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Duration (Estimated)</th>
+            <th scope="col">No. of Topics</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

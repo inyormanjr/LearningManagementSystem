@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LmsMainSbComponent } from './lms-main-sb/lms-main-sb.component';
-import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SbTopNavComponent } from './components/sb-top-nav/sb-top-nav.component';
 import { SbSideNavComponent } from './components/sb-side-nav/sb-side-nav.component';
 import { LmsMainSbRoutingModule } from './lms-main-sb-routing/lms-main-sb-routing.module';
@@ -36,7 +36,10 @@ import { LessonEntryComponent } from './courses-management/lessons-management/le
 import { LessonDetailsEntryComponent } from './lessons-management/components/lesson-details-entry/lesson-details-entry.component';
 import { LessonPreviewComponent } from './courses-management/lessons-management/lesson-preview/lesson-preview.component';
 import { LessonModalComponent } from './lessons-management/components/lesson-modal/lesson-modal.component';
-import { BrowserModule } from '@angular/platform-browser';
+
+import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { ExerciseManagementComponent } from './courses-management/exercise-management/exercise-management.component';
+import { StudentResourceManagementComponent } from './courses-management/student-resource-management/student-resource-management.component';
 
 
 
@@ -70,6 +73,8 @@ import { BrowserModule } from '@angular/platform-browser';
     LessonEntryComponent,
     LessonDetailsEntryComponent,
     LessonPreviewComponent,
+    ExerciseManagementComponent,
+    StudentResourceManagementComponent,
   ],
 
   imports: [
@@ -81,6 +86,7 @@ import { BrowserModule } from '@angular/platform-browser';
     LmsMainSbRoutingModule,
     SharedModule,
     NgxModuleModule,
+    MonacoEditorModule.forRoot(),
   ],
   exports: [],
   providers: [

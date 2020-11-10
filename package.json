@@ -37,6 +37,7 @@
     "ng2-file-upload": "^1.4.0",
     "ngx-animate": "^1.0.1",
     "ngx-bootstrap": "^5.6.1",
+    "ngx-monaco-editor": "^6.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
     "startbootstrap-sb-admin-2": "^4.0.7",
